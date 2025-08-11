@@ -2,8 +2,14 @@
 
 - [x] Setup Husky
 - [x] Setup Auth in DB
-- [ ] Setup User Sign In / Sign Up
-- [ ] Setup Master/Dev Users for testing
-- [ ] Setup Toaster
+- [x] Setup Shadcn
+- [ ] Setup Global Theme
+- [ ] Setup Sonner Toaster
 - [ ] Setup Zustand Global Store
+- [ ] Setup User Sign In / Sign Up
+- [ ] Create Master/Dev Users for testing
 - [ ] Setup Game Context
+- [ ] Game APIs
+- [ ] Create Game View
+- [ ] Friendly Games / Games with Crypto
+- [ ] Setup Wallets
