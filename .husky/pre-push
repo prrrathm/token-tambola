@@ -1,1 +1,24 @@
-echo '🚀 Building before push...' && pnpm build || (echo '❌ Build failed! Push aborted.' && exit 1)
+#!/bin/sh
+echo "🚀 Building only staged/committed files before push..."
+
+# Stash unstaged changes but keep staged ones
+STASH_NAME="pre-push-$(date +%s)"
+git stash push --keep-index --quiet -m "$STASH_NAME"
+
+# Check if we actually stashed something
+STASH_CREATED=$(git stash list | grep "$STASH_NAME" || true)
+
+# Run build
+if ! pnpm build; then
+  echo "❌ Build failed! Push aborted."
+  # Restore changes only if we had stashed
+  if [ -n "$STASH_CREATED" ]; then
+    git stash pop --quiet
+  fi
+  exit 1
+fi
+
+# Restore unstaged changes only if we had stashed
+if [ -n "$STASH_CREATED" ]; then
+  git stash pop --quiet
+fi
