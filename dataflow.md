@@ -2,6 +2,7 @@ entities
 
 player
 game
+session
 
 ## Constraints
 
