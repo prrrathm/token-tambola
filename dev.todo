@@ -1,0 +1,9 @@
+# Dev Tasks
+
+- [x] Setup Husky
+- [x] Setup Auth in DB
+- [ ] Setup User Sign In / Sign Up
+- [ ] Setup Master/Dev Users for testing
+- [ ] Setup Toaster
+- [ ] Setup Zustand Global Store
+- [ ] Setup Game Context
