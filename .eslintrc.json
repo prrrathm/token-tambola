@@ -1,0 +1,9 @@
+{
+	"extends": ["next", "next/core-web-vitals", "prettier"],
+	"plugins": [],
+	"rules": {
+		"@next/next/no-document-import-in-page": "off",
+		"indent": ["error", "tab"], // Enforce tabs for indentation
+		"no-tabs": "off" // Allow tab usage
+	}
+}

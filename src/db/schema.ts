@@ -61,7 +61,7 @@ export const accounts = pgTable(
 	},
 	(table) => ({
 		pk: primaryKey({ columns: [table.provider, table.providerAccountId] }),
-	}),
+	})
 );
 
 export const sessions = pgTable("sessions", {
@@ -81,7 +81,7 @@ export const verificationTokens = pgTable(
 	},
 	(table) => ({
 		pk: primaryKey({ columns: [table.identifier, table.token] }),
-	}),
+	})
 );
 
 // --------------------
@@ -91,18 +91,13 @@ export const games = pgTable(
 	"games",
 	{
 		id: uuid("id").defaultRandom().primaryKey(),
-		createdAt: timestamp("created_at", { withTimezone: true })
-			.defaultNow()
-			.notNull(),
+		createdAt: timestamp("created_at", { withTimezone: true }).defaultNow().notNull(),
 		endedAt: timestamp("ended_at", { withTimezone: true }),
 		size: integer("size").notNull(),
 	},
 	(table) => ({
-		sizeCheck: check(
-			"size_check",
-			sql`${table.size} >= 4 AND ${table.size} <= 50`,
-		),
-	}),
+		sizeCheck: check("size_check", sql`${table.size} >= 4 AND ${table.size} <= 50`),
+	})
 );
 
 export const gameSessions = pgTable("game_sessions", {

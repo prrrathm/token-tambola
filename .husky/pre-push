@@ -1,0 +1,1 @@
+echo '🚀 Building before push...' && pnpm build || (echo '❌ Build failed! Push aborted.' && exit 1)
