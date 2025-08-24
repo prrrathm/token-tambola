@@ -4,8 +4,10 @@
 - [x] Setup Auth in DB
 - [x] Setup Shadcn
 - [ ] Setup Global Theme
-- [ ] Setup Sonner Toaster
-- [ ] Setup Zustand Global Store
+- [x] Setup Sonner Toaster
+- [x] Setup Zustand Global Store
+- [ ] Setup RHF
+- [ ] Setup Zod
 - [ ] Setup User Sign In / Sign Up
 - [ ] Create Master/Dev Users for testing
 - [ ] Setup Game Context

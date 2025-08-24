@@ -29,6 +29,7 @@ export default function AuthGuard({ children, fallback }: AuthGuardProps) {
 	// Show protected content if authenticated
 	return <>{children}</>;
 }
+9;
 
 // Component for guest-only pages (like sign-in page)
 export function GuestGuard({ children }: { children: ReactNode }) {

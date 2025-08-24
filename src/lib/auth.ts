@@ -1,25 +1,10 @@
 // lib/auth.ts
-import { NextAuthOptions } from "next-auth";
-import GoogleProvider from "next-auth/providers/google";
-import { DrizzleAdapter } from "@auth/drizzle-adapter";
-import { db } from "@/db/db";
-import { users, accounts, sessions, verificationTokens } from "@/db/schema";
+import bcrypt from "bcrypt";
 
-export const authOptions: NextAuthOptions = {
-	adapter: DrizzleAdapter(db, {
-		usersTable: users,
-		accountsTable: accounts,
-		sessionsTable: sessions,
-		verificationTokensTable: verificationTokens,
-	}),
-	providers: [
-		GoogleProvider({
-			clientId: process.env.GOOGLE_CLIENT_ID!,
-			clientSecret: process.env.GOOGLE_CLIENT_SECRET!,
-		}),
-	],
-	session: {
-		strategy: "database",
-	},
-	secret: process.env.NEXTAUTH_SECRET,
-};
+export async function hashPassword(password: string) {
+	return await bcrypt.hash(password, 10);
+}
+
+export async function verifyPassword(password: string, hash: string) {
+	return await bcrypt.compare(password, hash);
+}

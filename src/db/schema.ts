@@ -33,6 +33,7 @@ export const claimTypeEnum = pgEnum("claim_type", [
 export const users = pgTable("users", {
 	id: uuid("id").defaultRandom().primaryKey(),
 	name: varchar("name", { length: 255 }),
+	username: varchar("username", { length: 255 }).unique(),
 	email: varchar("email", { length: 255 }).notNull().unique(),
 	emailVerified: timestamp("email_verified", { withTimezone: true }),
 	image: text("image"),
